@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/8cca2c22a7.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>step form</title>
+  </head>
+  <body>
+    
+    <div class="bg-info">
+      <h1 class="text-center pt-2 pb-5 text-white">Onborading Form</h1>
+      <form id="myform" name="myForm"  onsubmit="return ValidateFirst()"  action="#">
+        <div class="container bg-light rounded">
+          <h2 class="mx-3 pt-3">Company Identification</h2>
+          <div class="overflow-hidden">
+            <div class="row gx-5">
+              <div class="col-lg-6">
+                <div class="p-3">
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label"
+                      ><b>Company Name</b></label
+                      >
+                      <input
+                      type="text"
+                      id="name"
+                      name="fname"
+                      class="form-control border-0 rr"
+                      aria-describedby="emailHelp"
+                      placeholder="full legal name of the company"
+                    /><span class="spanerror" id="name1"></span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="form-element">
+                  <b>Company Logo </b> <br>
+                  <input type="file" id="file-1" accept="image/*" />
+                  <label for="file-1" id="file-1-preview">
+                    <img src="" alt="" id="previmg" />
+                    <span id="inputFile"></span>
+                    <div>
+                      <span>+</span>
+                    </div>
+                  </label>
+                </div>
+              </div>
+              <button class="imgbtn" type="button" onclick="removeImg()">Close</button>
+            </div>
+          </div>
+          <div class="mx-3">
+            <label for="exampleInputEmail1" class="form-label"
+              ><b>Registered Address</b></label
+            >
+            <input
+              type="text"
+              name="faddress"
+              class="form-control border-0"
+              placeholder="search location"
+              id="address"
+              aria-describedby="emailHelp"
+            /><span class="spanerror" id="address1"></span>
+          </div>
+          <form>
+            
+            <div class="overflow-hidden">
+              <div class="row gx-5">
+                <div class="col">
+                  <div class="p-3">
+                    <label for="exampleInputEmail1" class="form-label"
+                      ><b>Email Address</b></label
+                    >
+                    <input
+                    type="text"
+                    id="email"
+                      name = "femail"
+                      class="form-control border-0"
+                      aria-describedby="emailHelp"
+                      placeholder="enter your email address"
+                    /><span class="spanerror" id="email1"></span>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="p-3">
+                    <label for="exampleInputEmail1" class="form-label"
+                      ><b>Website</b></label
+                    >
+                    <input
+                      type="text"
+                      name="fwebsite"
+                      class="form-control border-0"
+                      id="website"
+                      aria-describedby="emailHelp"
+                      placeholder="enter your official website"
+                    /><span class="spanerror" id="website1"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-check mx-3">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="check"
+                onchange="addressFunction()"
+              />
+              <label class="form-check-label" for="flexCheckDefault">
+              Tick if email is the same as Master Admin Account
+              </label>
+            </div>
+            <div class="overflow-hidden">
+              <div class="row gx-5">
+                <div class="col">
+                  <div class="p-3">
+                    <label for="exampleInputEmail1" class="form-label"
+                      ><b>Administrator Name</b></label
+                    >
+                    <input
+                    type="text"
+                    id="adname"
+                      name="fadname"
+                      class="form-control border-0"
+                      aria-describedby="emailHelp"
+                      placeholder="full name if the administrator"
+                    /><span class="spanerror" id="adname1"></span>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="p-3">
+                    <label for="exampleInputEmail1" class="form-label"
+                      ><b>Administrator Email</b></label
+                    >
+                    <input
+                    type="text"
+                    id="ademail"
+                      name="fademail"
+                      class="form-control border-0"
+                      aria-describedby="emailHelp"
+                      placeholder="enter email address"
+                    /><span class="spanerror" id = "ademail1"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+          <div class="w-50 p-3" id="admob">
+            <b>Administrator Mobile</b>
+
+            <div class="input-group">
+              <div class="btn-group">
+                <div class="dropdown">
+                  <div>
+                    <select name="opinion" class="number p-2">
+                      <option value="select">--select--</option>
+                      <option value="good">+1</option>
+                      <option value="sat">+44</option>
+                      <option value="bad">+91</option>
+                      <option value="bad">+92</option>
+                      <option value="bad">+93</option>
+                      <option value="bad">+97</option>
+                    </select> <span></span>
+                  </div>
+                </div>
+              </div>
+              <input
+              id="admobile"
+                type="text"
+                name="fadmob"
+                aria-label="Last name"
+                placeholder="enter your contact number"
+                class="form-control border-0 ml-2"
+              />
+              <div>
+                <button
+                  type="button"
+                  class="verify-btn border"
+                  data-toggle="modal" data-target="#myModal"
+                >
+                  verify
+                </button><span class="spanerror" id="admobile1"></span>
+              </div>
+            </div>
+          </div>
+            <!-- The Modal -->
+  <div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Verify Your Number</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+          Enter Your OTP
+        </div>
+        <input class="otp-box" type="number">
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success modal-text" data-dismiss="modal">Close</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+          <div class="mx-3">
+            <div class="mb-3">
+              <label for="exampleFormControlTextarea1" class="form-label"
+                ><b>Company Description</b></label
+              >
+              <textarea
+              class="form-control border-0"
+              id="des"
+                name="fdes"
+                placeholder="write a short description of your company (include primary goods and/or services offered - max  250 characters)"
+                rows="3"
+              ></textarea>
+            </div><span class="spanerror" id="des1"></span>
+          </div>
+          <div class="form-check mx-3">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              id="flexCheckDefault"
+            />
+            <label class="form-check-label" for="flexCheckDefault">
+              I verify that I'm an authorised representative of this organisation
+              and have the right to act on its behalf on its creation and
+              management of this page
+            </label>
+            <button type="submit" onclick="ValidateFirst()" class="button c2">company structure</button>
+            <button class="proceedbtn" onclick="myFunction()">Proceed</button>
+          </div>
+        </div>
+      </form>
+
+      <form class="form-2" name="RegForm" id="myform2" onsubmit="return validation()">
+        <div class="container bg-light rounded radius">
+          <h2 class="mx-3 pt-3">Company Structure</h2>
+          <div class="overflow-hidden">
+            <div class="row gx-5">
+              <div class="col">
+                <div class="p-3">
+                  <label for="exampleInputEmail1" class="form-label"
+                    ><b>Company Legal Structure</b></label
+                  ><br />
+                  <div>
+                    <select name="opinion" class="select dropp" id="legal">
+                      <option value="0">--select--</option>
+                      <option value="good">good</option>
+                      <option value="sat">satisfactory</option>
+                      <option value="bad">bad</option>
+                    </select>
+                  </div>
+                  <!-- <span id="legal1"></span> -->
+                </div>
+              </div>
+              <div class="col">
+                <div class="p-3">
+                  <label for="exampleInputEmail1" class="form-label"
+                    ><b>Company Type</b></label
+                  >
+                  <br />
+                  <div>
+                    <select name="opinion" class="select dropp" id="type">
+                      <option value="0">--select--</option>
+                      <option value="good">good</option>
+                      <option value="sat">satisfactory</option>
+                      <option value="bad">bad</option>
+                    </select>
+                  </div>
+                  <span class="spanerror" id="legal1"></span>
+                  <!-- <input
+                    type="text"
+                    class="form-control"
+                    id="type"
+                    aria-describedby="emailHelp"
+                    placeholder="--select--"
+                  /> -->
+                  <!-- <span id="type1"></span> -->
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="overflow-hidden">
+            <div class="row gx-5">
+              <div class="col">
+                <div class="p-3">
+                  <label for="exampleInputEmail1" class="form-label"
+                    ><b>Date of Company Registration</b></label
+                  >
+                  <br />
+                  <div>
+                    <select name="opinion" class="select dropp" id="date">
+                      <option value="0">--select--</option>
+                      <option value="good">good</option>
+                      <option value="sat">satisfactory</option>
+                      <option value="bad">bad</option>
+                    </select>
+                  </div>
+
+                  <!-- <span id="date1"></span> -->
+                </div>
+              </div>
+              <div class="col">
+                <div class="p-3">
+                  <label for="exampleInputEmail1" class="form-label"
+                    ><b>Business Sector Classification</b></label
+                  ><br />
+                  <div>
+                    <select name="opinion" class="select dropp" id="sector">
+                      <option value="0">--select--</option>
+                      <option value="good">good</option>
+                      <option value="sat">satisfactory</option>
+                      <option value="bad">bad</option>
+                    </select>
+                  </div>
+
+                  <!-- <span id="sector1"></span> -->
+                </div>
+              </div>
+            </div>
+            <div class="overflow-hidden">
+              <div class="row gx-5">
+                <div class="col">
+                  <div class="p-3">
+                    <label for="exampleInputEmail1" class="form-label"
+                      ><b>Current Number of Employees</b></label
+                    ><br />
+                    <div>
+                      <select name="opinion" class="select dropp" id="employee">
+                        <option value="0">--select--</option>
+                        <option value="good">good</option>
+                        <option value="sat">satisfactory</option>
+                        <option value="bad">bad</option>
+                      </select>
+                    </div>
+
+                    <!-- <span id="employee1"></span> -->
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="p-3">
+                    <label for="exampleInputEmail1" class="form-label"
+                      ><b>number of Years With Current Auditor</b></label
+                    ><br />
+                    <div>
+                      <select name="opinion" class="select dropp" id="auditor">
+                        <option value="0">--select--</option>
+                        <option value="good">good</option>
+                        <option value="sat">satisfactory</option>
+                        <option value="bad">bad</option>
+                      </select>
+                    </div>
+
+                    <!-- <span id="auditor1"></span> -->
+                  </div>
+                </div>
+              </div>
+              <div class="overflow-hidden half">
+                <div class="row gx-5">
+                  <div class="col">
+                    <div class="p-3">
+                      <label for="exampleInputEmail1" class="form-label"
+                        ><b>Auditors Most Recent Opinion</b></label
+                      ><br />
+                      <div>
+                        <select name="opinion" class="select dropp" id="opinion">
+                          <option value="0">--select--</option>
+                          <option value="good">good</option>
+                          <option value="sat">satisfactory</option>
+                          <option value="bad">bad</option>
+                        </select>
+                      </div>
+                      <span id="opinion1"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="overflow-hidden">
+              <div class="row gx-5">
+                <div class="col">
+                  <div class="p-3">
+                    <label for="exampleInputEmail1" class="form-label"
+                      ><b
+                        >What is the amount of your company's registered
+                        capital(USD equiv.)</b
+                      ></label
+                    >
+                    <div>
+                      <select name="capital" class="select dropp" id="capital">
+                        <option value="0">--select--</option>
+                        <option value="yes">$0-$10M</option>
+                        <option value="yes">$10-$50M</option>
+                        <option value="yes">$50-$100M</option>
+                        <option value="yes">$1000-$500M</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="overflow-hidden">
+            <div class="row gx-5">
+              <div class="col">
+                <div class="p-3">
+                  <label for="exampleInputEmail1" class="form-label"
+                    ><b
+                      >Has the company or associated principal been declared backrupt?</b
+                    ></label
+                  >
+                  <div>
+                    <select name="backrupt" class="select dropp" id="bankrupt">
+                      <option value="0">--select--</option>
+                      <option value="yes">yes</option>
+                      <option value="no">no</option>
+                    </select>
+                  </div>
+                  <!-- <span id="debt1"></span> -->
+                </div>
+              </div>
+            </div>
+          <div class="overflow-hidden">
+            <div class="row gx-5">
+              <div class="col">
+                <div class="p-3">
+                  <label for="exampleInputEmail1" class="form-label"
+                    ><b
+                      >Has company or any principal been taken to court for the
+                      recovery of debt or lien</b
+                    ></label
+                  >
+                  <div>
+                    <select name="court" class="select dropp" id="court">
+                      <option value="0">--select--</option>
+                      <option value="yes">yes</option>
+                      <option value="no">no</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+       
+          <button class="button">company details</button>
+          <button class="button-2" onclick="ValidateNew()" type="submit">
+            submit
+          </button>
+          <button class="button-2">financials</button>
+        </div>
+      </form>
+    </div>
+    <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+          <p>Some text in the modal.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="script.js"></script>
+  </body>
+</html>
